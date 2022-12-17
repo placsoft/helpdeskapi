@@ -24,29 +24,72 @@ A growing customer base is a sign of a growing business. But guess what happens 
   - download and install postman based on your OS https://www.postman.com/downloads/
   - VS Code is prefered, you may install any other softwares 
   - install docker desktop for Windows and MacOS https://www.docker.com/products/docker-desktop/
+  - Install Python 3.8 
 
-### Clone and download this repo to your directory 
+### Installation 
 
 https://github.com/placsoft/helpdeskapi.git
 
-### change directory 
+> change directory 
 `$cd helpdeskapi` 
 
 > make sure you have docker up and running on your local machine
 > build and run docker-compose, this will run your API server in backend and expose port 5000 on host machine
 
-`$ docker-compose up -d --build`
+`$docker-compose up -d --build`
 
 > check your container nama and ports its exposed 
-`docker-compose ps` 
+`$docker-compose ps` 
 
 > if it's successfullt, then you should see two containers are running 1.placdesk_api 2. placdesk_api_db_1
 
 ![image](https://user-images.githubusercontent.com/118790540/208244634-8bb85995-11ef-41d7-8228-ebf0c3aef11d.png)
 
+### Verify database 
+`$docker-compose exec db psql --username=placdesk --dbname=placdesk`
+
+
+### Verify placdesk end points 
+
+
+> ping test 
+`$curl -X GET http://127.0.0.1:5000/plac` 
+
+> total tickets count 
+`$curl -X GET http://127.0.0.1:5000/ticketcount`
+
+> create a new ticket 
+
+ `curl --request POST 'http://127.0.0.1:5000/ticket/'  --data-raw '{"title":"my first ticket","description":"issue with my VPN access","status":"new","agent":"plac.agent1","customer":"plac.customer1","agent_notes":"ticket created with new status"}' -H "Content-Type:application/json"`
+
+> get all tickets
+
+`$curl -X GET http://127.0.0.1:5000/ticket/`
+
+> get single ticket details with ID 
+
+`$curl -X GET http://127.0.0.1:5000/ticket/1/`
+
+> create bulk of tickets using python request and loop 
+> you must be in project folder, install requests module using pip if it's missing 
+`python3 create_tickets.py`
+ > this will create 1000 tickets in your helpdesk where you can play around with UPDATE/DELETE operation. 
 
 
 
+### import POSTMAN collection and use all available endpoint for CRUD operations. 
+
+
+Note - this helpdesk demonstrate only for education purpose, you are welcome to clone and extend the code functionality.
+
+## Planning to develop below features for a fully operational helpdesk system 
+
+- ticket history - new table required 
+- different type of ticket(incident, service request, change request and etc) 
+- department - this is ticket queue 
+- notification over email 
+- Frontend UI 
+- many more.. 
 
 
 
