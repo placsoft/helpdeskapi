@@ -78,16 +78,20 @@ https://github.com/placsoft/helpdeskapi.git
 
 
 ### import POSTMAN collection and use all available endpoint for CRUD operations. 
+set environment variable url and port based on your set up 
+by default url=127.0.0.1 and port=5000
+
 
 
 Note - this helpdesk demonstrate only for education purpose, you are welcome to clone and extend the code functionality.
 
-## Planning to develop below features for a fully operational helpdesk system 
+### Planning to develop below features for a fully operational helpdesk system 
 
-- ticket history - new table required 
+- new endpoints such StateUpdate, AgentUpdate, CustomerUpdate, Titleupdate and many more 
 - different type of ticket(incident, service request, change request and etc) 
 - department - this is ticket queue 
 - notification over email 
+- ticket history 
 - Frontend UI 
 - many more.. 
 
