@@ -20,4 +20,13 @@ A growing customer base is a sign of a growing business. But guess what happens 
 - PostgreSQL 
 - Postman 
 
+## Set up your local laptop as server 
+  - download and install postman based on your OS https://www.postman.com/downloads/
+  - VS Code is prefered, you may install any other softwares 
+  - install docker desktop for Windows and MacOS https://www.docker.com/products/docker-desktop/
 
+### Clone and download this repo to your directory 
+
+
+
+  
