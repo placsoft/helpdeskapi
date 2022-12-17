@@ -27,6 +27,35 @@ A growing customer base is a sign of a growing business. But guess what happens 
 
 ### Clone and download this repo to your directory 
 
+https://github.com/placsoft/helpdeskapi.git
+
+### change directory 
+`$cd helpdeskapi` 
+
+> make sure you have docker up and running on your local machine
+> build and run docker-compose, this will run your API server in backend and expose port 5000 on host machine
+
+`$ docker-compose up -d --build`
+
+> check your container nama and ports its exposed 
+`docker-compose ps` 
+
+> if it's successfullt, then you should see two containers are running 1.placdesk_api 2. placdesk_api_db_1
+
+![image](https://user-images.githubusercontent.com/118790540/208244634-8bb85995-11ef-41d7-8228-ebf0c3aef11d.png)
 
 
-  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
