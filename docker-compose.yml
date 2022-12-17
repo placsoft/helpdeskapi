@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  web:
+    container_name: placdesk_api
+    build: ./src
+    command: uvicorn app.main:app  --workers 1 --host 0.0.0.0 --port 8010
+    volumes:
+      - ./src/:/usr/src/app/
+    ports:
+      - '5000:8010'
+    environment:
+      - DATABASE_URL=postgresql://placdesk:placdesk@db/placdesk
+  db:
+    image: postgres:12.1-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=placdesk
+      - POSTGRES_PASSWORD=placdesk
+      - POSTGRES_DB=placdesk
+
+volumes:
+  postgres_data:
+
+networks:
+  default:
+    name: plac-net
+    external: true
